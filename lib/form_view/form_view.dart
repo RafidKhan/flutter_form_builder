@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:form_builder/components/checkbox_component.dart';
 import 'package:form_builder/components/radio_component.dart';
 import 'package:form_builder/components/text_field_component.dart';
 import 'package:form_builder/constants.dart';
@@ -24,6 +25,92 @@ class _FormViewState extends State<FormView> {
   }
 
   generateForm() {
+    listForms.add(FormModel(
+      type: "textfield",
+      title: "Enter Your Name",
+    ));
+
+    listForms.add(FormModel(
+        type: "radio", title: "Select Gender", options: ["male", "female"]));
+
+    listForms.add(FormModel(
+        type: "checkbox",
+        title: "Your Skills",
+        options: ["flutter", "web", "backend", "devops"]));
+
+    listForms.add(FormModel(
+      type: "textfield",
+      title: "Enter Your Name",
+    ));
+
+    listForms.add(FormModel(
+        type: "radio", title: "Select Gender", options: ["male", "female"]));
+
+    listForms.add(FormModel(
+        type: "checkbox",
+        title: "Your Skills",
+        options: ["flutter", "web", "backend", "devops"]));
+
+    listForms.add(FormModel(
+      type: "textfield",
+      title: "Enter Your Name",
+    ));
+
+    listForms.add(FormModel(
+        type: "radio", title: "Select Gender", options: ["male", "female"]));
+
+    listForms.add(FormModel(
+        type: "checkbox",
+        title: "Your Skills",
+        options: ["flutter", "web", "backend", "devops"]));
+    listForms.add(FormModel(
+      type: "textfield",
+      title: "Enter Your Name",
+    ));
+
+    listForms.add(FormModel(
+        type: "radio", title: "Select Gender", options: ["male", "female"]));
+
+    listForms.add(FormModel(
+        type: "checkbox",
+        title: "Your Skills",
+        options: ["flutter", "web", "backend", "devops"]));
+    listForms.add(FormModel(
+      type: "textfield",
+      title: "Enter Your Name",
+    ));
+
+    listForms.add(FormModel(
+        type: "radio", title: "Select Gender", options: ["male", "female"]));
+
+    listForms.add(FormModel(
+        type: "checkbox",
+        title: "Your Skills",
+        options: ["flutter", "web", "backend", "devops"]));
+    listForms.add(FormModel(
+      type: "textfield",
+      title: "Enter Your Name",
+    ));
+
+    listForms.add(FormModel(
+        type: "radio", title: "Select Gender", options: ["male", "female"]));
+
+    listForms.add(FormModel(
+        type: "checkbox",
+        title: "Your Skills",
+        options: ["flutter", "web", "backend", "devops"]));
+    listForms.add(FormModel(
+      type: "textfield",
+      title: "Enter Your Name",
+    ));
+
+    listForms.add(FormModel(
+        type: "radio", title: "Select Gender", options: ["male", "female"]));
+
+    listForms.add(FormModel(
+        type: "checkbox",
+        title: "Your Skills",
+        options: ["flutter", "web", "backend", "devops"]));
     listForms.add(FormModel(
       type: "textfield",
       title: "Enter Your Name",
@@ -78,7 +165,14 @@ class _FormViewState extends State<FormView> {
                 },
               );
             }
-            if (type == checkbox) {}
+            if (type == checkbox) {
+              return CheckBoxComponent(
+                formModel: element,
+                formValue: (value) {
+                  element.value = value;
+                },
+              );
+            }
             return const SizedBox();
           }),
     );

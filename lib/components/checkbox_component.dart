@@ -3,7 +3,7 @@ import 'package:form_builder/model/form_model.dart';
 
 class CheckBoxComponent extends StatefulWidget {
   FormModel formModel;
-  Function(String) formValue;
+  Function(dynamic) formValue;
 
   CheckBoxComponent({
     Key? key,
@@ -16,11 +16,15 @@ class CheckBoxComponent extends StatefulWidget {
 }
 
 class _CheckBoxComponentState extends State<CheckBoxComponent> {
-  int? selectedOption;
+  List selectedOptions = [];
 
-  selectOption(int index) {
-    selectedOption = index;
-    widget.formValue(widget.formModel.options?[index]);
+  selectOption(option) {
+    if (selectedOptions.contains(option)) {
+      selectedOptions.remove(option);
+    } else {
+      selectedOptions.add(option);
+    }
+    widget.formValue(selectedOptions);
     setState(() {});
   }
 
@@ -45,11 +49,9 @@ class _CheckBoxComponentState extends State<CheckBoxComponent> {
                     margin: const EdgeInsets.only(bottom: 10),
                     child: Row(
                       children: [
-                        selectedOption != null
-                            ? index == selectedOption
-                                ? selectedRadioOption(index: index)
-                                : unSelectedRadioOption(index: index)
-                            : unSelectedRadioOption(index: index),
+                        selectedOptions.contains(option)
+                            ? selectedRadioOption(option: option)
+                            : unSelectedRadioOption(option: option),
                         const SizedBox(
                           width: 10,
                         ),
@@ -62,10 +64,10 @@ class _CheckBoxComponentState extends State<CheckBoxComponent> {
     );
   }
 
-  Widget selectedRadioOption({required int index}) {
+  Widget selectedRadioOption({required option}) {
     return InkWell(
       onTap: () {
-        selectOption(index);
+        selectOption(option);
       },
       child: Container(
         height: 20,
@@ -92,10 +94,10 @@ class _CheckBoxComponentState extends State<CheckBoxComponent> {
     );
   }
 
-  Widget unSelectedRadioOption({required int index}) {
+  Widget unSelectedRadioOption({required option}) {
     return InkWell(
       onTap: () {
-        selectOption(index);
+        selectOption(option);
       },
       child: Container(
         height: 20,
