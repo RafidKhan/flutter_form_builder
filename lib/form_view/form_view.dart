@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:form_builder/components/radio_component.dart';
 import 'package:form_builder/components/text_field_component.dart';
 import 'package:form_builder/constants.dart';
 import 'package:form_builder/model/form_model.dart';
@@ -69,7 +70,14 @@ class _FormViewState extends State<FormView> {
                 },
               );
             }
-            if (type == radio) {}
+            if (type == radio) {
+              return RadioComponent(
+                formModel: element,
+                formValue: (value) {
+                  element.value = value;
+                },
+              );
+            }
             if (type == checkbox) {}
             return const SizedBox();
           }),

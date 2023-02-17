@@ -3,7 +3,7 @@ import 'package:form_builder/model/form_model.dart';
 
 class TextFieldComponent extends StatefulWidget {
   FormModel formModel;
-  Function(String) formValue;
+  Function(dynamic) formValue;
 
   TextFieldComponent({
     Key? key,
