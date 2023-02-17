@@ -4,6 +4,7 @@ import 'package:form_builder/module/form_module/components/checkbox_component.da
 import 'package:form_builder/module/form_module/components/radio_component.dart';
 import 'package:form_builder/module/form_module/components/text_field_component.dart';
 import 'package:form_builder/module/form_module/controller/form_controller.dart';
+import 'package:form_builder/module/form_submit_view/view/form_view.dart';
 import 'package:get/get.dart';
 
 class FormView extends StatefulWidget {
@@ -61,6 +62,7 @@ class _FormViewState extends State<FormView> {
                               formModel: element,
                               formValue: (value) {
                                 element.fieldValue = value;
+                                print("RADIO: ${element.fieldValue}");
                                 controller.update();
                               },
                             );
@@ -80,7 +82,7 @@ class _FormViewState extends State<FormView> {
                       onTap: () {
                         FocusManager.instance.primaryFocus?.unfocus();
                         if (controller.isActive() == true) {
-                          controller.getResult();
+                          Get.to(() => const FormSubmitView());
                         } else {
                           Get.snackbar(
                             'Please Fill Up Required Fields',

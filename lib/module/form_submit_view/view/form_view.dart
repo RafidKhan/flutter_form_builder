@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:form_builder/constants.dart';
-import 'package:form_builder/module/form_module/components/checkbox_component.dart';
-import 'package:form_builder/module/form_module/components/radio_component.dart';
-import 'package:form_builder/module/form_module/components/text_field_component.dart';
 import 'package:form_builder/module/form_module/controller/form_controller.dart';
 import 'package:form_builder/module/form_submit_view/component/form_data_tile.dart';
 import 'package:get/get.dart';
@@ -24,7 +20,7 @@ class _FormSubmitViewState extends State<FormSubmitView> {
         appBar: AppBar(
           title: const Text("Form Information"),
         ),
-        body: ListView.builder(
+        body: ListView.separated(
             itemCount: controller.listForms.length,
             padding: const EdgeInsets.symmetric(
               horizontal: 16,
@@ -36,6 +32,9 @@ class _FormSubmitViewState extends State<FormSubmitView> {
               return FormDataTile(
                 formModel: element,
               );
+            },
+            separatorBuilder: (context, index) {
+              return const Divider(thickness: 2,);
             }),
       );
     });

@@ -73,13 +73,6 @@ class FormController extends GetxController {
     update();
   }
 
-  getResult() {
-    List<dynamic> formData = [];
-    listForms.forEach((element) {
-      formData.add(element.toJson());
-    });
-  }
-
   bool isActive() {
     bool result = false;
     for (int i = 0; i < listForms.length; i++) {

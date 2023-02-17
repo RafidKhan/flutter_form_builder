@@ -21,10 +21,13 @@ class _RadioComponentState extends State<RadioComponent> {
   selectOption(int index) {
     if (selectedOption == index) {
       selectedOption = null;
-      widget.formValue(null);
     } else {
       selectedOption = index;
+    }
+    if (selectedOption != null) {
       widget.formValue(widget.formModel.options?[index]);
+    } else {
+      widget.formValue(null);
     }
     setState(() {});
   }
