@@ -62,7 +62,6 @@ class _FormViewState extends State<FormView> {
                               formModel: element,
                               formValue: (value) {
                                 element.fieldValue = value;
-                                print("RADIO: ${element.fieldValue}");
                                 controller.update();
                               },
                             );
