@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:form_builder/components/text_field_component.dart';
 import 'package:form_builder/constants.dart';
 import 'package:form_builder/model/form_model.dart';
 
@@ -40,13 +43,32 @@ class _FormViewState extends State<FormView> {
       appBar: AppBar(
         title: const Text("Enter Your Information"),
       ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.done),
+        onPressed: () {
+          listForms.forEach((element) {
+            log("FORM: ${element.toJson()}");
+          });
+        },
+      ),
       body: ListView.builder(
           itemCount: listForms.length,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 16,
+          ),
           physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) {
             final element = listForms[index];
             final type = element.type;
-            if (type == textfield) {}
+            if (type == textfield) {
+              return TextFieldComponent(
+                formModel: element,
+                formValue: (value) {
+                  element.value = value;
+                },
+              );
+            }
             if (type == radio) {}
             if (type == checkbox) {}
             return const SizedBox();

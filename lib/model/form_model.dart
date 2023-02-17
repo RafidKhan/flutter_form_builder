@@ -1,7 +1,7 @@
 class FormModel {
   final String? type;
   final String? title;
-  final dynamic value;
+  dynamic value;
   final List<dynamic>? options;
 
   FormModel({
