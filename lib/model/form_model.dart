@@ -1,26 +1,26 @@
 class FormModel {
   final String? type;
   final String? title;
-  dynamic value;
   final List<dynamic>? options;
+  dynamic value;
 
   FormModel({
     this.type,
     this.title,
-    this.value,
     this.options,
+    this.value,
   });
 
   FormModel.fromJson(Map<String, dynamic> json)
       : type = json['type'] ?? "",
         title = json['title'] ?? "",
-        value = json['value'] ?? "",
-        options = json['options'] ?? [];
+        options = json['options'] ?? [],
+        value = json['value'] ?? "";
 
   Map<String, dynamic> toJson() => {
         'type': type,
         'title': title,
-        'value': value,
         'options': options,
+        'value': value,
       };
 }

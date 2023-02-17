@@ -39,6 +39,9 @@ class _CheckBoxComponentState extends State<CheckBoxComponent> {
             "${widget.formModel.title}",
             style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
+          const SizedBox(
+            height: 10,
+          ),
           ListView.builder(
               shrinkWrap: true,
               itemCount: widget.formModel.options?.length,
@@ -72,20 +75,16 @@ class _CheckBoxComponentState extends State<CheckBoxComponent> {
       child: Container(
         height: 20,
         width: 20,
-        decoration:
-            const BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
+        decoration: const BoxDecoration(color: Colors.blue),
         child: Center(
           child: Container(
-            height: 15,
-            width: 15,
-            decoration: const BoxDecoration(
-                color: Colors.white, shape: BoxShape.circle),
-            child: Center(
-              child: Container(
-                height: 12,
-                width: 12,
-                decoration: const BoxDecoration(
-                    color: Colors.blue, shape: BoxShape.circle),
+            height: 17,
+            width: 17,
+            decoration: const BoxDecoration(color: Colors.white),
+            child: const Center(
+              child: Icon(
+                Icons.done,
+                size: 12,
               ),
             ),
           ),
@@ -102,14 +101,12 @@ class _CheckBoxComponentState extends State<CheckBoxComponent> {
       child: Container(
         height: 20,
         width: 20,
-        decoration:
-            const BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
+        decoration: const BoxDecoration(color: Colors.blue),
         child: Center(
           child: Container(
-            height: 15,
-            width: 15,
-            decoration: const BoxDecoration(
-                color: Colors.white, shape: BoxShape.circle),
+            height: 17,
+            width: 17,
+            decoration: const BoxDecoration(color: Colors.white),
           ),
         ),
       ),

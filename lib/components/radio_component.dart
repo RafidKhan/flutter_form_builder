@@ -35,6 +35,9 @@ class _RadioComponentState extends State<RadioComponent> {
             "${widget.formModel.title}",
             style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
+          const SizedBox(
+            height: 10,
+          ),
           ListView.builder(
               shrinkWrap: true,
               itemCount: widget.formModel.options?.length,

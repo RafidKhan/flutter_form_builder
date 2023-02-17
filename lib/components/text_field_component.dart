@@ -27,6 +27,9 @@ class _TextFieldComponentState extends State<TextFieldComponent> {
             "${widget.formModel.title}",
             style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
+          const SizedBox(
+            height: 10,
+          ),
           TextFormField(
             initialValue: widget.formModel.value,
             decoration: InputDecoration(
@@ -38,7 +41,7 @@ class _TextFieldComponentState extends State<TextFieldComponent> {
             onChanged: (value) {
               widget.formValue(value);
             },
-          )
+          ),
         ],
       ),
     );
