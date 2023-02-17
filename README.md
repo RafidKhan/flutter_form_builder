@@ -1,16 +1,50 @@
-# form_builder
+1.
+{
+    "type": "textfield",
+    "title": "Enter Your Name",
+    "isRequired": true
+}
+2.
+{
+    "type": "radio",
+    "title": "Select Gender",
+    "options": [],
+    "isRequired": false
+}
+3.
+{
+    "type": "checkbox",
+    "title": "Select Your Skills",
+    "options": [],
+    "isRequired": true
+}
 
-A new Flutter project.
+these are the initail objscts coming from api as list/array. In Example:
+[
+{
+    "type": "textfield",
+    "title": "Enter Your Name",
+    "isRequired": true
+},
+{
+    "type": "radio",
+    "title": "Select Gender",
+    "options": [],
+    "isRequired": false
+},
+{
+    "type": "checkbox",
+    "title": "Select Your Skills",
+    "options": [],
+    "isRequired": true
+}
+]
 
-## Getting Started
+For type textfield, there is no predetirmined options. radio and checkbox types have limited options that need to be selected. 
 
-This project is a starting point for a Flutter application.
+In the model class I have added another field 'fieldValue' which is initially null. 
+In textfield widget, on onchange the 'fieldValue' value is being updated. It has dynamic validation as well.
+In radio and checkbox widget, on onTap the 'fieldValue' value is being updated. These too have dynamic validation.
 
-A few resources to get you started if this is your first Flutter project:
+Hope this repo helps you to generate form builder.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
