@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:form_builder/model/form_model.dart';
 
-class RadioComponent extends StatefulWidget {
+class CheckBoxComponent extends StatefulWidget {
   FormModel formModel;
-  Function(dynamic) formValue;
+  Function(String) formValue;
 
-  RadioComponent({
+  CheckBoxComponent({
     Key? key,
     required this.formModel,
     required this.formValue,
   }) : super(key: key);
 
   @override
-  State<RadioComponent> createState() => _RadioComponentState();
+  State<CheckBoxComponent> createState() => _CheckBoxComponentState();
 }
 
-class _RadioComponentState extends State<RadioComponent> {
+class _CheckBoxComponentState extends State<CheckBoxComponent> {
   int? selectedOption;
 
   selectOption(int index) {
