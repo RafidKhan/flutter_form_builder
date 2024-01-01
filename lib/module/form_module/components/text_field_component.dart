@@ -51,7 +51,7 @@ class _TextFieldComponentState extends State<TextFieldComponent> {
             TextFormField(
               initialValue: widget.formModel.fieldValue,
               decoration: InputDecoration(
-                hintText: "${widget.formModel.title}",
+                hintText: widget.formModel.title,
                 border: const OutlineInputBorder(
                   borderSide: BorderSide(width: 3, color: Colors.black),
                 ),
@@ -67,7 +67,8 @@ class _TextFieldComponentState extends State<TextFieldComponent> {
               validator: (value) {
                 if (widget.formModel.isRequired == true) {
                   if (value!.trim().isEmpty) {
-                    return "Input is required";
+                    return widget.formModel.validationMessage ??
+                        "Input is required";
                   }
                   return null;
                 }

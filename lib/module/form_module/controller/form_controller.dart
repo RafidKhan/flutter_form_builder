@@ -3,13 +3,9 @@ import 'package:form_builder/model/form_model.dart';
 import 'package:get/get.dart';
 
 class FormController extends GetxController {
-  List<FormModel> listForms = <FormModel>[];
-  bool loading = false;
+  final List<FormModel> listForms = <FormModel>[];
 
   Future<void> generateForm() async {
-    loading = true;
-    update();
-    await Future.delayed(const Duration(seconds: 2));
     listForms.add(
       FormModel(
         type: textfield,
@@ -20,9 +16,20 @@ class FormController extends GetxController {
 
     listForms.add(
       FormModel(
+        type: textfield,
+        title: "Enter Designation",
+        fieldValue: "Software Associate",
+        validationMessage: "Designation is required",
+        isRequired: true,
+      ),
+    );
+
+    listForms.add(
+      FormModel(
         type: radio,
         title: "Select Gender",
         options: ["male", "female"],
+        isRequired: true,
       ),
     );
 
@@ -68,7 +75,35 @@ class FormController extends GetxController {
       ),
     );
 
-    loading = false;
+    listForms.add(
+      FormModel(
+        type: checkbox,
+        title: "Passion",
+        options: [
+          "music",
+          "food",
+          "other",
+        ],
+        fieldValue: [
+          "music",
+        ],
+        isRequired: true,
+      ),
+    );
+
+    listForms.add(
+      FormModel(
+        type: radio,
+        title: "Select Region",
+        options: [
+          "Dhaka",
+          "Sylhet",
+          "Other",
+        ],
+        fieldValue: "Sylhet",
+      ),
+    );
+
     update();
   }
 

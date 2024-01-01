@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_builder/constants.dart';
 import 'package:form_builder/model/form_model.dart';
 
 class RadioComponent extends StatefulWidget {
@@ -30,6 +31,25 @@ class _RadioComponentState extends State<RadioComponent> {
       widget.formValue(null);
     }
     setState(() {});
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    prefillFields();
+  }
+
+  void prefillFields() {
+    if (widget.formModel.type == radio) {
+      if (widget.formModel.fieldValue != null) {
+        final index = (widget.formModel.options ?? [])
+            .indexWhere((element) => element == widget.formModel.fieldValue);
+        if (index >= 0) {
+          selectedOption = index;
+        }
+      }
+    }
   }
 
   @override

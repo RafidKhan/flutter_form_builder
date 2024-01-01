@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_builder/constants.dart';
 import 'package:form_builder/model/form_model.dart';
 
 class CheckBoxComponent extends StatefulWidget {
@@ -16,7 +17,7 @@ class CheckBoxComponent extends StatefulWidget {
 }
 
 class _CheckBoxComponentState extends State<CheckBoxComponent> {
-  List selectedOptions = [];
+  final List selectedOptions = [];
 
   selectOption(option) {
     if (selectedOptions.contains(option)) {
@@ -31,6 +32,21 @@ class _CheckBoxComponentState extends State<CheckBoxComponent> {
     }
 
     setState(() {});
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    prefillFields();
+  }
+
+  void prefillFields() {
+    if (widget.formModel.type == checkbox) {
+      if (widget.formModel.fieldValue is List) {
+        selectedOptions.addAll(widget.formModel.fieldValue as List);
+      }
+    }
   }
 
   @override

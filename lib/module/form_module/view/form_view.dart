@@ -31,20 +31,18 @@ class _FormViewState extends State<FormView> {
         appBar: AppBar(
           title: const Text("Enter Your Information"),
         ),
-        body: controller.loading == true
-            ? const Center(child: CircularProgressIndicator())
-            : SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: Column(
-                  children: [
-                    ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: controller.listForms.length,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 16,
-                        ),
-                        physics: const NeverScrollableScrollPhysics(),
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: controller.listForms.length,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 16,
+                  ),
+                  physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) {
                           final element = controller.listForms[index];
                           final type = element.type;
