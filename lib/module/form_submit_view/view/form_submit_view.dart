@@ -11,7 +11,7 @@ class FormSubmitView extends StatefulWidget {
 }
 
 class _FormSubmitViewState extends State<FormSubmitView> {
-  var formController = Get.put(FormController());
+  final formController = Get.put(FormController());
 
   @override
   Widget build(BuildContext context) {

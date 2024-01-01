@@ -1,5 +1,4 @@
-import 'dart:developer';
-
+import 'package:form_builder/constants.dart';
 import 'package:form_builder/model/form_model.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +12,7 @@ class FormController extends GetxController {
     await Future.delayed(const Duration(seconds: 2));
     listForms.add(
       FormModel(
-        type: "textfield",
+        type: textfield,
         title: "Enter Your Name",
         isRequired: true,
       ),
@@ -21,7 +20,7 @@ class FormController extends GetxController {
 
     listForms.add(
       FormModel(
-        type: "radio",
+        type: radio,
         title: "Select Gender",
         options: ["male", "female"],
       ),
@@ -29,7 +28,7 @@ class FormController extends GetxController {
 
     listForms.add(
       FormModel(
-        type: "checkbox",
+        type: checkbox,
         title: "Your Skills",
         options: ["flutter", "web", "backend", "devops"],
       ),
@@ -37,14 +36,14 @@ class FormController extends GetxController {
 
     listForms.add(
       FormModel(
-        type: "textfield",
+        type: textfield,
         title: "Enter Your age",
       ),
     );
 
     listForms.add(
       FormModel(
-        type: "radio",
+        type: radio,
         title: "Select Earning",
         options: [
           "0-9",
@@ -58,7 +57,7 @@ class FormController extends GetxController {
 
     listForms.add(
       FormModel(
-        type: "checkbox",
+        type: checkbox,
         title: "Source of income",
         options: [
           "business",

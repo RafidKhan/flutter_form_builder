@@ -3,9 +3,9 @@ import 'package:form_builder/constants.dart';
 import 'package:form_builder/model/form_model.dart';
 
 class FormDataTile extends StatefulWidget {
-  FormModel formModel;
+  final FormModel formModel;
 
-  FormDataTile({
+  const FormDataTile({
     Key? key,
     required this.formModel,
   }) : super(key: key);
@@ -25,7 +25,6 @@ class _FormDataTileState extends State<FormDataTile> {
         values = widget.formModel.fieldValue;
       }
     }
-    print("HERE: ${values}");
     super.initState();
   }
 

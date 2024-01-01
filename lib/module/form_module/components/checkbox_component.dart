@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:form_builder/model/form_model.dart';
 
 class CheckBoxComponent extends StatefulWidget {
-  FormModel formModel;
-  Function(dynamic) formValue;
+  final FormModel formModel;
+  final Function(dynamic) formValue;
 
-  CheckBoxComponent({
+  const CheckBoxComponent({
     Key? key,
     required this.formModel,
     required this.formValue,
@@ -81,7 +81,7 @@ class _CheckBoxComponentState extends State<CheckBoxComponent> {
                           const SizedBox(
                             width: 10,
                           ),
-                          Text("${option}"),
+                          Text("$option"),
                         ],
                       )),
                 );

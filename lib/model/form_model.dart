@@ -3,7 +3,7 @@ class FormModel {
   final String? title;
   final List<dynamic>? options;
   dynamic fieldValue;
-  bool? isRequired;
+  final bool? isRequired;
 
   FormModel({
     this.type,

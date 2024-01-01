@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:form_builder/model/form_model.dart';
 
 class RadioComponent extends StatefulWidget {
-  FormModel formModel;
-  Function(dynamic) formValue;
+  final FormModel formModel;
+  final Function(dynamic) formValue;
 
-  RadioComponent({
+  const RadioComponent({
     Key? key,
     required this.formModel,
     required this.formValue,
@@ -82,7 +82,7 @@ class _RadioComponentState extends State<RadioComponent> {
                           const SizedBox(
                             width: 10,
                           ),
-                          Text("${option}"),
+                          Text("$option"),
                         ],
                       )),
                 );

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:form_builder/model/form_model.dart';
 
 class TextFieldComponent extends StatefulWidget {
-  FormModel formModel;
-  Function(dynamic) formValue;
+  final FormModel formModel;
+  final Function(dynamic) formValue;
 
-  TextFieldComponent({
+  const TextFieldComponent({
     Key? key,
     required this.formModel,
     required this.formValue,

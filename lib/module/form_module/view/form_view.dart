@@ -4,7 +4,7 @@ import 'package:form_builder/module/form_module/components/checkbox_component.da
 import 'package:form_builder/module/form_module/components/radio_component.dart';
 import 'package:form_builder/module/form_module/components/text_field_component.dart';
 import 'package:form_builder/module/form_module/controller/form_controller.dart';
-import 'package:form_builder/module/form_submit_view/view/form_view.dart';
+import 'package:form_builder/module/form_submit_view/view/form_submit_view.dart';
 import 'package:get/get.dart';
 
 class FormView extends StatefulWidget {
@@ -15,7 +15,7 @@ class FormView extends StatefulWidget {
 }
 
 class _FormViewState extends State<FormView> {
-  var formController = Get.put(FormController());
+  final formController = Get.put(FormController());
 
   @override
   void initState() {
