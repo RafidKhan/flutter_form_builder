@@ -31,87 +31,89 @@ class _FormViewState extends State<FormView> {
         appBar: AppBar(
           title: const Text("Enter Your Information"),
         ),
-        body: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
+        body: ListView.builder(
+            shrinkWrap: true,
+            itemCount: controller.listForms.length,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 16,
+            ),
+            physics: const BouncingScrollPhysics(),
+            itemBuilder: (context, index) {
+              final element = controller.listForms[index];
+              final type = element.type;
+              if (type == textfield) {
+                return TextFieldComponent(
+                  formModel: element,
+                  formValue: (value) {
+                    element.fieldValue = value;
+                    controller.update();
+                  },
+                );
+              }
+              if (type == radio) {
+                return RadioComponent(
+                  formModel: element,
+                  formValue: (value) {
+                    element.fieldValue = value;
+                    controller.update();
+                  },
+                );
+              }
+              if (type == checkbox) {
+                return CheckBoxComponent(
+                  formModel: element,
+                  formValue: (value) {
+                    element.fieldValue = value;
+                    controller.update();
+                  },
+                );
+              }
+              return const SizedBox();
+            }),
+        bottomNavigationBar: Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: controller.listForms.length,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 16,
+              InkWell(
+                onTap: () {
+                  FocusManager.instance.primaryFocus?.unfocus();
+                  if (controller.isActive() == true) {
+                    Get.to(() => const FormSubmitView());
+                  } else {
+                    Get.snackbar(
+                      'Please Fill Up Required Fields',
+                      '',
+                    );
+                  }
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  margin: const EdgeInsets.only(
+                    left: 16,
+                    right: 16,
+                    bottom: 20,
                   ),
-                  physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (context, index) {
-                          final element = controller.listForms[index];
-                          final type = element.type;
-                          if (type == textfield) {
-                            return TextFieldComponent(
-                              formModel: element,
-                              formValue: (value) {
-                                element.fieldValue = value;
-                                controller.update();
-                              },
-                            );
-                          }
-                          if (type == radio) {
-                            return RadioComponent(
-                              formModel: element,
-                              formValue: (value) {
-                                element.fieldValue = value;
-                                controller.update();
-                              },
-                            );
-                          }
-                          if (type == checkbox) {
-                            return CheckBoxComponent(
-                              formModel: element,
-                              formValue: (value) {
-                                element.fieldValue = value;
-                                controller.update();
-                              },
-                            );
-                          }
-                          return const SizedBox();
-                        }),
-                    InkWell(
-                      onTap: () {
-                        FocusManager.instance.primaryFocus?.unfocus();
-                        if (controller.isActive() == true) {
-                          Get.to(() => const FormSubmitView());
-                        } else {
-                          Get.snackbar(
-                            'Please Fill Up Required Fields',
-                            '',
-                          );
-                        }
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 15),
-                        margin: const EdgeInsets.only(
-                          left: 16,
-                          right: 16,
-                          bottom: 20,
-                        ),
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                          color:
-                              controller.isActive() ? Colors.blue : Colors.grey,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Center(
-                            child: Text(
-                          "Submit",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        )),
-                      ),
-                    )
-                  ],
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    color: controller.isActive() ? Colors.blue : Colors.grey,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Center(
+                      child: Text(
+                    "Submit",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  )),
                 ),
-              ),
+              )
+            ],
+          ),
+        ),
       );
     });
   }
